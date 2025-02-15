@@ -1,0 +1,73 @@
+/* Use a clean sans-serif font */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+/* Header styling */
+header {
+  background-color: #4285F4;
+  color: white;
+  padding: 15px;
+  border-radius: 4px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Section styling */
+section {
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Button styling */
+button {
+  background-color: #4285F4;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  margin: 5px 0;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+}
+button:hover {
+  background-color: #357ae8;
+}
+
+/* Error messages */
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+/* Calendar selection area */
+#calendarSelection {
+  margin: 10px 0;
+}
+#calendarList label {
+  margin-right: 10px;
+}
+
+/* Navigation buttons and week range */
+.nav-buttons {
+  margin-bottom: 10px;
+}
+
+/* Group free slots by day */
+.day-group {
+  background-color: #e9f5ff;
+  border: 1px solid #cce0ff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+.day-group h3 {
+  margin: 0 0 10px;
+}

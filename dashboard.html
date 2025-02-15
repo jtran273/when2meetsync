@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - When2Meet Sync</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    #weekRange {
+      font-weight: bold;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>When2Meet Sync Dashboard</h1>
+    <div class="nav-buttons">
+      <button id="prevWeek">Previous Week</button>
+      <span id="weekRange"></span>
+      <button id="nextWeek">Next Week</button>
+      <button id="logoutButton" title="Log Out">Log Out</button>
+    </div>
+  </header>
+  <section>
+    <div id="connected-calendars">
+      <img src="google_icon.png" alt="Google Calendar" title="Google Calendar">
+    </div>
+    <button id="syncAvailability">Sync Availability</button>
+    <span id="loadingIndicator" style="display:none;">Syncing...</span>
+    <button id="syncToWhen2Meet">Sync to When2Meet</button>
+    <button id="settingsButton" title="Calendar Preferences">&#9881;</button>
+  </section>
+  <section id="resultsSection" style="display:none;">
+    <h2>Suggested Meeting Times</h2>
+    <div id="freeSlotsContainer"></div>
+  </section>
+  <script src="dashboard.js"></script>
+</body>
+</html>

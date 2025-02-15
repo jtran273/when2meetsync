@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Calendar Preferences - When2Meet Sync</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Customize Your Availability Sync</h1>
+  </header>
+  <section>
+    <label>
+      <input type="checkbox" id="doNotScheduleAfter9">
+      Do Not Schedule After 9PM
+    </label><br>
+    <label>
+      <input type="checkbox" id="syncOnlyWeekdays" checked>
+      Sync Only Weekdays
+    </label><br>
+    <label>
+      <input type="checkbox" id="includeWeekends">
+      Include Weekends
+    </label><br>
+    <label for="timeZoneSelect">Select Time Zone:</label>
+    <select id="timeZoneSelect">
+      <option value="America/New_York">Eastern Time</option>
+      <option value="America/Chicago">Central Time</option>
+      <option value="America/Denver">Mountain Time</option>
+      <option value="America/Los_Angeles">Pacific Time</option>
+      <!-- More time zones can be added -->
+    </select><br><br>
+    <button id="savePreferences">Save Preferences</button>
+  </section>
+  <script src="preferences.js"></script>
+</body>
+</html>

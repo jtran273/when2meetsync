@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "When2Meet Sync",
+  "version": "1.2",
+  "description": "Smart scheduling: Sync your Google Calendar availability (from multiple calendars) to When2Meet.",
+  "permissions": [
+    "identity",
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://www.googleapis.com/"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "When2Meet Sync"
+  },
+  "oauth2": {
+    "client_id": "850844112715-1jugshcc1vk67fjomur66s122eo9bko3.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/calendar.readonly"
+    ]
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.when2meet.com/*"],
+      "js": ["when2meet.js"]
+    }
+  ]
+}
