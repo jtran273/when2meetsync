@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
         errorMessage.textContent = 'Failed to authenticate: ' + chrome.runtime.lastError.message;
         return;
       }
-      console.log('Google OAuth token:', token);
+      console.log("Using Client ID:", chrome.runtime.getManifest().oauth2.client_id);
       chrome.storage.local.set({ googleToken: token }, function() {
         console.log('Token saved.');
         // Load calendar list now.
