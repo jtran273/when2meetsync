@@ -16,7 +16,7 @@
     "default_title": "When2Meet Sync"
   },
   "oauth2": {
-    "client_id": "850844112715-76rjumhnm5p2ps78odagin881vr8m26f.apps.googleusercontent.com",
+    "client_id": "172702287157-r9nn267j2nhpi3etd3tk7mbd6k1l7fgf.apps.googleusercontent.com",
     "scopes": [
       "https://www.googleapis.com/auth/calendar.readonly"
     ]

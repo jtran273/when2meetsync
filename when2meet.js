@@ -2,15 +2,14 @@ console.log('when2meet.js content script loaded');
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === 'updateAvailability') {
-    updateWhen2MeetAvailability(message.availability);
+    autoSelectWhen2MeetAvailability(message.availability);
     sendResponse({ status: 'updated' });
   }
 });
 
-function updateWhen2MeetAvailability(availability) {
-  console.log('Updating When2Meet with availability:', availability);
+function autoSelectWhen2MeetAvailability(availability) {
+  console.log('Auto-selecting availability:', availability);
   
-  // Convert the ISO date strings back into Date objects.
   availability = availability.map(range => ({
     day: new Date(range.day),
     start: new Date(range.start),
@@ -19,7 +18,6 @@ function updateWhen2MeetAvailability(availability) {
   
   console.log('Converted availability:', availability);
 
-  // Use the selector based on your provided HTML.
   let slots = document.querySelectorAll('#YouGridSlots div[data-time]');
   console.log('Using selector "#YouGridSlots div[data-time]" - Found:', slots.length, 'slot elements.');
   
@@ -29,31 +27,26 @@ function updateWhen2MeetAvailability(availability) {
     return;
   }
   
-  // Process each slot.
   slots.forEach(slot => {
-    // Retrieve the slot's time from the data-time attribute.
     let slotTimeStr = slot.getAttribute('data-time');
-    let slotTime = parseInt(slotTimeStr, 10); // Unix timestamp in seconds
-    console.log('Processing slot:', slot.outerHTML, 'with data-time:', slotTime);
+    let slotTime = parseInt(slotTimeStr, 10);
     
     if (!isNaN(slotTime) && isSlotWithinAvailability(slotTime, availability)) {
       try {
-        // For a <div>, change its background color to mark it as available.
-        console.log('Marking slot with time:', slotTime);
-        slot.style.backgroundColor = '#a8d08d'; // Light green
+        // Simulate a mouse click event to select the slot
+        slot.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
+        slot.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }));
       } catch (e) {
-        console.error('Error processing slot:', e, slot);
+        console.error('Error selecting slot:', e, slot);
       }
     }
   });
 }
 
 function isSlotWithinAvailability(slotTime, availability) {
-  // For each availability range, convert the start and end Date to Unix timestamps (seconds)
   for (let range of availability) {
     const startUnix = Math.floor(range.start.getTime() / 1000);
     const endUnix = Math.floor(range.end.getTime() / 1000);
-    console.log(`Comparing slotTime ${slotTime} with range ${startUnix} - ${endUnix}`);
     if (slotTime >= startUnix && slotTime < endUnix) {
       return true;
     }
